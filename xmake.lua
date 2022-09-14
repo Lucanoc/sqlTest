@@ -1,5 +1,7 @@
 add_rules("mode.debug", "mode.release")
 
+set_languages("cxx20")
+
 target("sqlPjc")
     set_kind("binary")
 
@@ -8,16 +10,24 @@ target("sqlPjc")
     )
 
     add_includedirs(
-        "include"
+        "include",
+        "/home/lucanon/Space/Packages/Cxx/coost/include"
+    )
+
+    add_linkdirs(
+        "/home/lucanon/Space/Packages/Cxx/coost/build/src"
+    )
+
+    add_links(
+        "co"
     )
 
     add_syslinks(
         "pqxx",
-        "pq"
+        "pq",
+        "backtrace"
     )
 target_end()
-
-set_languages("cxx20")
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
 --
